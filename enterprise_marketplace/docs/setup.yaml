@@ -1,0 +1,161 @@
+project:
+  name: Tuliho Meat - Enterprise Marketplace
+  owner: Tuliho Meat
+  location: Mafinga, Mkabala na Stand Kuu
+  description: >
+    A company website to advertise meat, fish, and chicken products; display
+    prices; provide contact information; showcase services (slaughtering, meat);
+     and enable customer engagement. Future
+    phases will add online ordering and payment.
+
+design_inspiration:
+  content_reference: https://www.arushameat.co.tz/
+  content_note: >
+    Customer liked the offering — meat company with slaughtering services, meat
+    processing, transport logistics, product catalog, and company heritage.
+  ui_reference: https://7d9df465fc5a5272.pilecode.app/farm-produce
+  ui_note: >
+    Modern card-based layout with field/rotation cards, clean typography,
+    muted earth tones, hero with tagline, lead grower attribution per product,
+    soil profile badges, and a refined farm-to-table aesthetic.
+
+objectives:
+  1: Showcase products (meat, fish, chicken) with prices and images
+  2: Showcase services (slaughtering, meat processing, transport logistics)
+  3: Provide contact info (WhatsApp, email, phone) and social media links
+  4: Let customers give feedback via comments
+  5: Admin dashboard to manage products and see site interactions
+  6: Promote location and special offers (holiday deals, bulk discounts)
+  7: Integrate WhatsApp for customer communication
+  8: Tell company story / heritage (founded, location, experience)
+
+mvp_user_stories:
+  - Visitor: browse products, prices, and images
+  - Visitor: see services offered (slaughtering, processing, logistics)
+  - Visitor: see contact info (WhatsApp, email, phone, location)
+  - Visitor: view social media links (Facebook, Instagram,)
+  - Visitor: leave feedback / comments on products
+  - Visitor: see special offers and holiday promotions
+  - Visitor: read about company history / heritage
+  - Admin: login to a secure dashboard
+  - Admin: add, edit, delete products with images
+  - Admin: view site interaction data (comments, visits)
+  - System: WhatsApp click-to-chat link (wa.me/...)
+
+
+
+tech_stack:
+  frontend:
+    framework: React.js (Vite)
+    styling: Tailwind CSS
+    animations: Framer Motion
+  backend:
+    framework: FastAPI (Python)
+    orm: SQLAlchemy
+    validation: Pydantic
+    auth: JWT (python-jose + passlib/bcrypt)
+  database: PostgreSQL (production) / SQLite (development)
+  deployment:
+    containerization: Docker + docker-compose
+    server: Linux VPS (e.g. DigitalOcean, Linode)
+    domain: configure with SSL (Let's Encrypt)
+
+data_models:
+  admin:
+    - id (PK)
+    - username (unique)
+    - email
+    - hashed_password
+    - created_at
+  product:
+    - id (PK)
+    - name
+    - category (beef, chicken, fish, goat, lamb, etc.)
+    - price (per kg or per unit)
+    - description
+    - image_url
+    - is_on_offer (boolean)
+    - offer_price (nullable)
+    - created_at
+    - updated_at
+  service:
+    - id (PK)
+    - name (slaughtering, processing, logistics)
+    - description
+    - icon
+    - is_active (boolean)
+    - created_at
+  comment:
+    - id (PK)
+    - product_id (FK -> product)
+    - author_name
+    - author_email
+    - message
+    - is_approved (admin moderation)
+    - created_at
+  site_interaction:
+    - id (PK)
+    - visitor_ip
+    - page_visited
+    - timestamp
+
+frontend_pages:
+  home:
+    - Hero section with logo, tagline ("Home of Pure Beef Products"), and CTA
+    - Featured services grid (slaughtering, processing, logistics) — card layout
+    - Company stats bar (years of experience, happy customers, employees, outlets)
+    - Featured products carousel / grid with images and prices
+    - About snippet with company story
+    - Location and contact bar with phone, email, address
+    - WhatsApp floating button (click-to-chat)
+    - Footer with navigation, social links, copyright
+  products:
+    - Product catalog with category filters (beef, chicken, fish, goat, lamb)
+    - Product cards (image, name, price, offer badge) — Terra & Vine style
+    - Individual product page with details, image, and comment section
+  services:
+    - Slaughtering Services detail
+    - Meat Processing detail
+    - Transport Logistics detail
+    - Each with description, image, and CTA
+  about:
+    - Company history / heritage (founded year, location story)
+    - Location map
+    - Operating hours
+    - Team / experience
+  contact:
+    - Contact form (email)
+    - WhatsApp click-to-chat button
+    - Phone numbers, email, physical address
+    - Social media links (Facebook, Instagram)
+  admin:
+    - Login page
+    - Dashboard (interaction stats, recent comments)
+    - Product CRUD (add/edit/delete with image upload)
+    - Comments moderation (approve/delete)
+
+project_structure:
+  enterprise_marketplace:
+    backend:
+      app:
+        api/v1/endpoints: product, comment, service, auth, admin, contact
+        core: config, security, JWT
+        db: session, migrations
+        models: SQLAlchemy table definitions
+        schemas: Pydantic request/response models
+        services: business logic (offers, notifications)
+      main.py: FastAPI app entry point
+      requirements.txt: pinned dependencies
+      Dockerfile: backend container
+    frontend:
+      public: static assets, images
+      src:
+        components: reusable UI (Navbar, ProductCard, ServiceCard, StatBar, OfferBanner, Footer)
+        pages: route pages (Home, Products, Services, About, Contact, Admin)
+        services: API client functions
+    deployments:
+      docker-compose.yml: backend + db + frontend services
+      nginx.conf: reverse proxy config
+    docs:
+      setup.yaml: this plan
+      api-spec.md: API documentation
