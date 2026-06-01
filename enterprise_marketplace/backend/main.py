@@ -1,18 +1,18 @@
-# backend/main.py
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
+
+from app.api.v1.api import router as api_router
 
 app = FastAPI(
     title="Enterprise Marketplace API",
     description="High-performance backend engine managing inventory, custom offers, and local payments.",
-    version="1.0.0"
+    version="1.0.0",
 )
 
-# Strict CORS policies - Ensure frontend can securely talk to backend
 origins = [
-    "http://localhost:3000",      # Local Next.js dev environment
-    "https://yourclientdomain.co.tz", # Live production URL
+    "http://localhost:5173",
+    "https://yourclientdomain.co.tz",
 ]
 
 app.add_middleware(
@@ -23,14 +23,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(api_router)
+
+
 @app.get("/", tags=["Health Check"])
 async def root():
     return {
         "status": "online",
         "environment": "production_ready",
-        "system_architecture": "decoupled_microservices"
+        "system_architecture": "decoupled_microservices",
     }
 
+
 if __name__ == "__main__":
-    # Standard production worker configuration
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

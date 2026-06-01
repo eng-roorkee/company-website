@@ -3,7 +3,7 @@ project:
   owner: Tuliho Meat
   location: Mafinga, Mkabala na Stand Kuu
   description: >
-    A company website to advertise meat, fish, and chicken products; display
+    A company website to advertise meat for cow products; display
     prices; provide contact information; showcase services (slaughtering, meat);
      and enable customer engagement. Future
     phases will add online ordering and payment.
@@ -20,7 +20,7 @@ design_inspiration:
     soil profile badges, and a refined farm-to-table aesthetic.
 
 objectives:
-  1: Showcase products (meat, fish, chicken) with prices and images
+  1: Showcase products (meat, chicken) with prices and images
   2: Showcase services (slaughtering, meat processing, transport logistics)
   3: Provide contact info (WhatsApp, email, phone) and social media links
   4: Let customers give feedback via comments

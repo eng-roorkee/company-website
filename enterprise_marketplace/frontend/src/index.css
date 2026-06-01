@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@theme {
+  --color-meat-red: #801919;
+  --color-meat-accent: #C2410C;
+  --color-meat-cream: #FAF7F2;
+  --color-meat-dark: #241E1E;
+  --color-meat-muted: #6B6363;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-meat-cream);
+  color: var(--color-meat-dark);
+}
