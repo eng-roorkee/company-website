@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -11,18 +10,7 @@ const nav = [
 export default function AdminLayout() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  const token = localStorage.getItem('token')
   const admin = JSON.parse(localStorage.getItem('admin') || 'null')
-
-  useEffect(() => {
-    if (!token && pathname !== '/admin/login') {
-      navigate('/admin/login')
-    }
-  }, [token, pathname, navigate])
-
-  if (!token) {
-    return <Outlet />
-  }
 
   const handleLogout = () => {
     localStorage.removeItem('token')

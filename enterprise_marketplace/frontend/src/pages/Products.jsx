@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import meatImg from '../assets/meat.jpg'
-import meat1Img from '../assets/meat1.jpg'
-import cowImg from '../assets/cow.jpg'
-import cow1Img from '../assets/cow1.jpg'
-import cow3Img from '../assets/cow3.jpg'
-import maini2Img from '../assets/maini2.jpg'
-import utumboImg from '../assets/utumbo.jpg'
+import meatImg from '../assets/meat.webp'
+import meat1Img from '../assets/meat1.webp'
+import cowImg from '../assets/cow.webp'
+import cow1Img from '../assets/cow1.webp'
+import cow3Img from '../assets/cow3.webp'
+import maini2Img from '../assets/maini2.webp'
+import utumboImg from '../assets/utumbo.webp'
 
 const stagger = {
   hidden: {},
