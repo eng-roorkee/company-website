@@ -11,7 +11,7 @@ describe('Navbar', () => {
   })
 
   it('renders brand name', () => {
-    expect(screen.getByText((_, el) => el.textContent === 'Tuliho Meat')).toBeInTheDocument()
+    expect(screen.getByText((_, el) => el.tagName === 'A' && el.textContent === 'Tuliho Meat')).toBeInTheDocument()
   })
 
   it('renders all navigation links', () => {
@@ -61,7 +61,7 @@ describe('WhatsAppFloatingButton', () => {
 describe('Layout', () => {
   it('renders Navbar and Footer', () => {
     render(<MemoryRouter><Layout /></MemoryRouter>)
-    const brand = screen.getAllByText((_, el) => el.textContent === 'Tuliho Meat')
+    const brand = screen.getAllByText((_, el) => el.tagName === 'A' && el.textContent === 'Tuliho Meat')
     expect(brand.length).toBeGreaterThanOrEqual(1)
     expect(screen.getByLabelText('Chat on WhatsApp')).toBeInTheDocument()
   })

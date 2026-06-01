@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="bg-meat-dark text-meat-muted text-sm py-12 mt-auto">
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-between gap-8">
         <div>
           <h4 className="text-white font-semibold mb-3 uppercase tracking-widest text-xs">Tuliho Meat</h4>
-          <p className="leading-relaxed">Premium meat, rooted in quality. Farm-fresh cuts delivered to your doorstep.</p>
+          <p className="leading-relaxed max-w-xs">Premium meat, rooted in quality. Farm-fresh cuts delivered to your doorstep.</p>
         </div>
         <div>
           <h4 className="text-white font-semibold mb-3 uppercase tracking-widest text-xs">Quick Links</h4>

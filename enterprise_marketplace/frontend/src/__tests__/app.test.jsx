@@ -36,9 +36,10 @@ describe('App routing', () => {
     expect(screen.getByText('Get in touch.')).toBeInTheDocument()
   })
 
-  it('renders Admin at /admin', () => {
+  it('renders Admin login page at /admin (no auth)', () => {
+    localStorage.removeItem('token')
     renderAt('/admin')
-    expect(screen.getByText('Dashboard')).toBeInTheDocument()
+    expect(screen.getByText('Admin Login')).toBeInTheDocument()
   })
 
   it('renders 404 for unknown routes', () => {
@@ -48,7 +49,7 @@ describe('App routing', () => {
 
   it('Navbar is present on every page', () => {
     renderAt('/products')
-    const brand = screen.getAllByText((_, el) => el.textContent === 'Tuliho Meat')
+    const brand = screen.getAllByText((_, el) => el.tagName === 'A' && el.textContent === 'Tuliho Meat')
     expect(brand.length).toBeGreaterThanOrEqual(1)
   })
 })
