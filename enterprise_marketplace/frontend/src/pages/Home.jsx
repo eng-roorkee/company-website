@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import coverpage from '../assets/coverpage.webp'
+import coverpage1 from '../assets/coverpage1.webp'
 
 const BelowFoldContent = lazy(() => import('./BelowFoldContent'))
 
@@ -14,10 +15,13 @@ const stats = [
 export default function Home() {
   return (
     <>
-      <section
-        className="relative text-white text-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${coverpage})` }}
-      >
+      <style>{`
+        .hero-cover { background-image: url(${coverpage}); }
+        @media (max-width: 767px) {
+          .hero-cover { background-image: url(${coverpage1}); }
+        }
+      `}</style>
+      <section className="hero-cover relative text-white text-center bg-cover bg-center">
         <div className="absolute inset-0 bg-meat-dark/70" />
         <div className="relative z-10 py-24 px-4">
           <div className="max-w-3xl mx-auto animate-fade-in-up">
