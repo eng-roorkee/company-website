@@ -28,7 +28,7 @@ describe('Page components', () => {
 
   it('Products renders heading', () => {
     renderPage(Products)
-    expect(screen.getByText('Premium meat cuts.')).toBeInTheDocument()
+    expect(screen.getByText('Fresh cuts, fair prices.')).toBeInTheDocument()
   })
 
   it('Services renders heading', () => {

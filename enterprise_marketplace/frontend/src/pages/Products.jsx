@@ -1,11 +1,9 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import meatImg from '../assets/meat.webp'
-import meat1Img from '../assets/meat1.webp'
-import cowImg from '../assets/cow.webp'
-import cow1Img from '../assets/cow1.webp'
-import cow3Img from '../assets/cow3.webp'
-import maini2Img from '../assets/maini2.webp'
 import utumboImg from '../assets/utumbo.webp'
+import kuroilerImg from '../assets/kuroiler-meat.webp'
+import broilerImg from '../assets/broiler-chicken.webp'
 
 const stagger = {
   hidden: {},
@@ -17,25 +15,125 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
-const productImages = [
-  meatImg, cowImg, cow1Img, meat1Img, cow3Img, maini2Img,
-  meatImg, cowImg, cow1Img, utumboImg, cow3Img, maini2Img,
+const products = [
+  {
+    name: 'Nyama ya Ng\'ombe (Beef)',
+    price: 12000,
+    image: meatImg,
+    isUpdated: true,
+    category: 'Beef',
+  },
+  {
+    name: 'Utumbo (Tripe)',
+    price: 8000,
+    image: utumboImg,
+    isUpdated: true,
+    category: 'Beef',
+  },
+  {
+    name: 'Kroiler Chicken',
+    image: kuroilerImg,
+    category: 'Poultry',
+    variants: [
+      { weight: 'Kroiler Chicken (Above 2 KG)', price: 20000 },
+      { weight: 'Kroiler Chicken (1.5KG - 1.9KG)', price: 18000 },
+      { weight: 'Kroiler Chicken (1.1KG - 1.4KG)', price: 15000 },
+    ],
+  },
+  {
+    name: 'Broiler Chicken',
+    image: broilerImg,
+    category: 'Poultry',
+    variants: [
+      { weight: 'Broiler Chicken (1.1KG - 1.4KG)', price: 9500 },
+      { weight: 'Broiler Chicken (1.5 - 2KG)', price: 11000 },
+    ],
+  },
 ]
 
-const products = [
-  { name: 'Oxtail Meat', category: 'Beef', image: '/placeholder.jpg' },
-  { name: 'T-Bone Steak', category: 'Beef', image: '/placeholder.jpg' },
-  { name: 'Beef Mince', category: 'Beef', image: '/placeholder.jpg' },
-  { name: 'Russian Sausage', category: 'Specialty', image: '/placeholder.jpg' },
-  { name: 'Beef Stew', category: 'Beef', image: '/placeholder.jpg' },
-  { name: 'Beef Fillet', category: 'Beef', image: '/placeholder.jpg' },
-  { name: 'Barbeque Pack', category: 'Specialty', image: '/placeholder.jpg' },
-  { name: 'Sato Fish', category: 'Fish', image: '/placeholder.jpg' },
-  { name: 'Broiler Chicken', category: 'Poultry', image: '/placeholder.jpg' },
-  { name: 'Beef Vienna', category: 'Specialty', image: '/placeholder.jpg' },
-  { name: 'Rib Eye', category: 'Beef', image: '/placeholder.jpg' },
-  { name: 'Fillet Sangara', category: 'Fish', image: '/placeholder.jpg' },
-]
+function ProductCard({ product }) {
+  const [selectedVariant, setSelectedVariant] = useState(
+    product.variants ? product.variants[0] : null
+  )
+
+  const displayPrice = product.variants ? selectedVariant.price : product.price
+  const displayPriceLabel = `${displayPrice.toLocaleString('en-TZ')} TSHS`
+
+  const handleAddToCart = () => {
+    const item = product.variants
+      ? { ...product, variant: selectedVariant }
+      : product
+    alert(`Added to cart:\n${item.name}${item.variant ? ` - ${item.variant.weight}` : ''}\n${displayPriceLabel}`)
+  }
+
+  return (
+    <motion.div
+      className="bg-white rounded-xl overflow-hidden border border-stone-200 shadow-sm group flex flex-col"
+      variants={fadeUp}
+      whileHover={{ y: -6, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
+      <div className="relative h-52 overflow-hidden bg-stone-100">
+        <motion.img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.6 }}
+          loading="lazy"
+        />
+        {product.isUpdated && (
+          <span className="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+            Bei Mpya
+          </span>
+        )}
+      </div>
+
+      <div className="p-5 flex flex-col flex-1">
+        <span className="text-[11px] uppercase tracking-[0.15em] text-meat-red font-semibold">
+          {product.category}
+        </span>
+
+        <h3 className="font-bold text-base mt-1 leading-snug text-meat-dark">
+          {product.name}
+        </h3>
+
+        <div className="mt-auto pt-4 space-y-3">
+          {product.variants && (
+            <select
+              value={selectedVariant?.weight || ''}
+              onChange={(e) => {
+                const v = product.variants.find((v) => v.weight === e.target.value)
+                if (v) setSelectedVariant(v)
+              }}
+              className="w-full text-sm border border-stone-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-meat-red/40 text-stone-700"
+            >
+              {product.variants.map((v) => (
+                <option key={v.weight} value={v.weight}>
+                  {v.weight}
+                </option>
+              ))}
+            </select>
+          )}
+
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-xl font-bold text-meat-red">
+              {displayPriceLabel}
+            </span>
+          </div>
+
+          {/* <button
+            onClick={handleAddToCart}
+            className="w-full bg-meat-red hover:bg-meat-red/90 text-white text-sm font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-colors"
+          >
+            Weka Kwenye Kikapu
+          </button> */}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
 
 export default function Products() {
   return (
@@ -56,45 +154,21 @@ export default function Products() {
         className="text-3xl font-bold mt-2 mb-2"
         variants={fadeUp}
       >
-        Premium meat cuts.
+        Fresh cuts, fair prices.
       </motion.h2>
       <motion.p
         className="text-stone-600 mb-12 max-w-xl"
         variants={fadeUp}
       >
-        Every cut sourced fresh, handled with care, and delivered to your door.
+        Farm-fresh beef and poultry — every cut, every bird, handled with care.
       </motion.p>
 
       <motion.div
         className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={stagger}
       >
-        {products.map((p, i) => (
-          <motion.div
-            key={p.name}
-            className="bg-white rounded-lg overflow-hidden border border-stone-200 shadow-sm group"
-            variants={fadeUp}
-            whileHover={{ y: -6, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            <div className="relative h-48 overflow-hidden bg-stone-200">
-              <motion.img
-                src={productImages[i]}
-                alt={p.name}
-                className="w-full h-full object-cover"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                loading="lazy"
-              />
-            </div>
-            <div className="p-5">
-              <span className="text-xs uppercase tracking-widest text-meat-red font-semibold">
-                {p.category}
-              </span>
-              <h3 className="font-semibold text-lg mt-1">{p.name}</h3>
-            </div>
-          </motion.div>
+        {products.map((p) => (
+          <ProductCard key={p.name} product={p} />
         ))}
       </motion.div>
     </motion.section>

@@ -18,7 +18,7 @@ describe('App routing', () => {
 
   it('renders Products at /products', () => {
     renderAt('/products')
-    expect(screen.getByText('Premium meat cuts.')).toBeInTheDocument()
+    expect(screen.getByText('Fresh cuts, fair prices.')).toBeInTheDocument()
   })
 
   it('renders Services at /services', () => {
