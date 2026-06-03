@@ -187,7 +187,7 @@ export default function BelowFoldContent() {
           <h2 className="text-2xl font-bold">Place Your Order Today</h2>
           <p className="mt-2 text-stone-300">Reach out on WhatsApp or give us a call.</p>
           <motion.a
-            href="https://wa.me/+255672203073"
+            href="https://wa.me/255672203073"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-6 bg-meat-red text-white px-8 py-3 rounded font-semibold hover:bg-meat-red/90 transition-colors"

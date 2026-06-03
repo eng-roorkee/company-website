@@ -10,11 +10,14 @@ router = APIRouter(prefix="/interactions", tags=["Site Interactions"])
 
 @router.post("", response_model=SiteInteractionResponse, status_code=201)
 def log_interaction(body: SiteInteractionCreate, request: Request, db: Session = Depends(get_db)):
+    ip_address = body.ip_address
+    if not ip_address and request.client:
+        ip_address = request.client.host
     interaction = SiteInteraction(
         page=body.page,
         action=body.action,
         extra_data=body.extra_data,
-        ip_address=body.ip_address or request.client.host if request.client else None,
+        ip_address=ip_address,
     )
     db.add(interaction)
     db.commit()

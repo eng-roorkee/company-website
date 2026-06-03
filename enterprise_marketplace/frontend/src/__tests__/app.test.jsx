@@ -36,10 +36,10 @@ describe('App routing', () => {
     expect(screen.getByText('Get in touch.')).toBeInTheDocument()
   })
 
-  it('renders Admin login page at /admin (no auth)', () => {
+  it('renders Admin login page at /admin (no auth)', async () => {
     localStorage.removeItem('token')
     renderAt('/admin')
-    expect(screen.getByText('Admin Login')).toBeInTheDocument()
+    expect(await screen.findByText('Admin Login')).toBeInTheDocument()
   })
 
   it('renders 404 for unknown routes', () => {

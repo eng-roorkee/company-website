@@ -27,7 +27,7 @@ export default function AdminProducts() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = { ...form, price: form.price ? parseFloat(form.price) : null }
+    const payload = { ...form, price: parseFloat(form.price) || 0 }
     try {
       if (editing) {
         await api.put(`/api/v1/products/${editing.id}`, payload)

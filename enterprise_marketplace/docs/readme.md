@@ -1,4 +1,4 @@
-Mafinga mkabala na stand kuu
+<!-- Mafinga mkabala na stand kuu
 Tuliho Meat
 +255 672 203 073
 +255 754 245 863
@@ -12,4 +12,4 @@ future_phases:
     - Payment integration (Azampay, M-Pesa)
     - Order history for customers
   phase_4:
-    - Mobile application
+    - Mobile application -->
