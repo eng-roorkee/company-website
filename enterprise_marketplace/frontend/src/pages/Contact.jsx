@@ -23,13 +23,13 @@ export default function Contact() {
         className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
         variants={fadeUp}
       >
-        Contact Us
+        Wasiliana Nasi
       </motion.span>
       <motion.h2
         className="text-3xl font-bold mt-2 mb-6"
         variants={fadeUp}
       >
-        Get in touch.
+        Wasiliana nasi.
       </motion.h2>
 
       <motion.div
@@ -38,7 +38,7 @@ export default function Contact() {
       >
         <motion.div className="space-y-6" variants={fadeUp}>
           <div>
-            <h3 className="font-semibold mb-1">Phone</h3>
+            <h3 className="font-semibold mb-1">Simu</h3>
             <p className="text-stone-600">+255 672 203 073</p>
             <p className="text-stone-600">+255 754 245 863</p>
           </div>
@@ -50,7 +50,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="text-meat-red font-semibold hover:text-meat-red/80 transition-colors"
             >
-              Chat now &rarr;
+              Ongea sasa &rarr;
             </a>
           </div>
         </motion.div>
@@ -60,10 +60,10 @@ export default function Contact() {
           whileHover={{ y: -5, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <h3 className="font-semibold mb-2">Place an Order</h3>
+          <h3 className="font-semibold mb-2">Weka Agizo</h3>
           <p className="text-stone-600 text-sm leading-relaxed mb-4">
-            Reach out via WhatsApp or phone to place your order. We deliver fresh,
-            farm-quality meat to your doorstep.
+            Wasiliana kupitia WhatsApp au Simu. Tunatoa nyama safi,
+            bora ya shambani mpaka mlangoni kwako.
           </p>
           <motion.a
             href="https://wa.me/255672203073?text=Hello%20Tuliho%20Meat%2C%20I%20would%20like%20to%20place%20an%20order."
@@ -73,7 +73,7 @@ export default function Contact() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Order on WhatsApp
+            Agiza kwenye WhatsApp
           </motion.a>
         </motion.div>
       </motion.div>

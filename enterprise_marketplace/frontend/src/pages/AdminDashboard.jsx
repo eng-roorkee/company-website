@@ -38,7 +38,7 @@ export default function AdminDashboard() {
       animate="visible"
       variants={stagger}
     >
-      <motion.h2 className="text-2xl font-bold mb-6" variants={fadeUp}>Dashboard</motion.h2>
+      <motion.h2 className="text-2xl font-bold mb-6" variants={fadeUp}>Dashibodi</motion.h2>
 
       <motion.div className="grid sm:grid-cols-3 gap-4 mb-10" variants={stagger}>
         <motion.div
@@ -46,41 +46,44 @@ export default function AdminDashboard() {
           variants={fadeUp}
         >
           <div className="text-2xl font-bold text-meat-red">{productCount}</div>
-          <div className="text-stone-500 text-sm mt-1">Products</div>
+          <div className="text-stone-500 text-sm mt-1">Bidhaa</div>
         </motion.div>
         <motion.div
           className="bg-white rounded-lg border border-stone-200 p-5"
           variants={fadeUp}
         >
           <div className="text-2xl font-bold text-meat-accent">{pendingCount}</div>
-          <div className="text-stone-500 text-sm mt-1">Pending Comments</div>
+          <div className="text-stone-500 text-sm mt-1">Maoni Yanasubiri</div>
         </motion.div>
         <motion.div
           className="bg-white rounded-lg border border-stone-200 p-5"
           variants={fadeUp}
         >
           <div className="text-2xl font-bold text-meat-dark">{pageViews}</div>
-          <div className="text-stone-500 text-sm mt-1">Page Views</div>
+          <div className="text-stone-500 text-sm mt-1">Matembezi ya Ukurasa</div>
         </motion.div>
       </motion.div>
 
       <motion.div className="grid sm:grid-cols-2 gap-6" variants={stagger}>
         <motion.div className="bg-white rounded-lg border border-stone-200 p-5" variants={fadeUp}>
-          <h3 className="font-semibold mb-3">Quick Actions</h3>
+          <h3 className="font-semibold mb-3">Vitendo vya Haraka</h3>
           <div className="space-y-2">
+            <Link to="/admin/prices" className="block text-sm text-meat-red hover:text-meat-red/80 transition-colors">
+              &rarr; Rekebisha Bei
+            </Link>
             <Link to="/admin/products" className="block text-sm text-meat-red hover:text-meat-red/80 transition-colors">
-              &rarr; Manage Products
+              &rarr; Simamia Bidhaa
             </Link>
             <Link to="/admin/comments" className="block text-sm text-meat-red hover:text-meat-red/80 transition-colors">
-              &rarr; Moderate Comments {pendingCount > 0 && `(${pendingCount} pending)`}
+              &rarr; Simamia Maoni {pendingCount > 0 && `(${pendingCount} yanasubiri)`}
             </Link>
           </div>
         </motion.div>
 
         <motion.div className="bg-white rounded-lg border border-stone-200 p-5" variants={fadeUp}>
-          <h3 className="font-semibold mb-3">Recent Activity</h3>
+          <h3 className="font-semibold mb-3">Shughuli za Hivi Karibuni</h3>
           {interactions.length === 0 ? (
-            <p className="text-stone-400 text-sm">No activity yet.</p>
+            <p className="text-stone-400 text-sm">Hakuna shughuli bado.</p>
           ) : (
             <ul className="space-y-1.5 text-sm text-stone-600">
               {interactions.map((i) => (

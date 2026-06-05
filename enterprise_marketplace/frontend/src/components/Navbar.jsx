@@ -3,11 +3,11 @@ import { Link, NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/products', label: 'Products' },
-  { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', label: 'Nyumbani' },
+  { to: '/products', label: 'Bidhaa' },
+  { to: '/services', label: 'Huduma' },
+  { to: '/about', label: 'Kuhusu' },
+  { to: '/contact', label: 'Wasiliana' },
 ]
 
 export default function Navbar() {
@@ -27,7 +27,7 @@ export default function Navbar() {
         </motion.div>
 
         <motion.div
-          className="hidden lg:flex items-center gap-8 text-sm uppercase tracking-widest"
+          className="hidden font-bold lg:flex items-center gap-8 text-sm uppercase tracking-widest"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
@@ -59,13 +59,13 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Contact via WhatsApp
+          Wasiliana kupitia WhatsApp
         </motion.a>
 
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
+          aria-label="Fungua menyu"
         >
           <span className={`block h-0.5 w-6 bg-meat-cream transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
           <span className={`block h-0.5 w-6 bg-meat-cream transition-opacity ${open ? 'opacity-0' : ''}`} />
@@ -104,7 +104,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="bg-meat-red hover:bg-meat-red/90 text-white text-sm font-semibold uppercase tracking-wider px-5 py-2.5 rounded transition-colors mt-2"
               >
-                Contact via WhatsApp
+                Wasiliana kupitia WhatsApp
               </a>
             </div>
           </motion.div>

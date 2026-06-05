@@ -15,11 +15,11 @@ describe('Navbar', () => {
   })
 
   it('renders all navigation links', () => {
-    expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('Products')).toBeInTheDocument()
-    expect(screen.getByText('Services')).toBeInTheDocument()
-    expect(screen.getByText('About')).toBeInTheDocument()
-    expect(screen.getByText('Contact')).toBeInTheDocument()
+    expect(screen.getByText('Nyumbani')).toBeInTheDocument()
+    expect(screen.getByText('Bidhaa')).toBeInTheDocument()
+    expect(screen.getByText('Huduma')).toBeInTheDocument()
+    expect(screen.getByText('Kuhusu')).toBeInTheDocument()
+    expect(screen.getByText('Wasiliana')).toBeInTheDocument()
   })
 })
 
@@ -45,14 +45,14 @@ describe('WhatsAppFloatingButton', () => {
   })
 
   it('renders a WhatsApp link', () => {
-    const link = screen.getByLabelText('Chat on WhatsApp')
+    const link = screen.getByLabelText('Ongea kwenye WhatsApp')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href')
     expect(link.getAttribute('href')).toContain('wa.me/255672203073')
   })
 
   it('opens in new tab', () => {
-    const link = screen.getByLabelText('Chat on WhatsApp')
+    const link = screen.getByLabelText('Ongea kwenye WhatsApp')
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noopener noreferrer')
   })
@@ -63,6 +63,6 @@ describe('Layout', () => {
     render(<MemoryRouter><Layout /></MemoryRouter>)
     const brand = screen.getAllByText((_, el) => el.tagName === 'A' && el.textContent === 'Tuliho Meat')
     expect(brand.length).toBeGreaterThanOrEqual(1)
-    expect(screen.getByLabelText('Chat on WhatsApp')).toBeInTheDocument()
+    expect(screen.getByLabelText('Ongea kwenye WhatsApp')).toBeInTheDocument()
   })
 })

@@ -6,10 +6,10 @@ import coverpage1 from '../assets/coverpage1.webp'
 const BelowFoldContent = lazy(() => import('./BelowFoldContent'))
 
 const stats = [
-  { label: 'Years in Business', value: '10+' },
-  { label: 'Premium Cuts', value: '25+' },
-  { label: 'Happy Customers', value: '5,000+' },
-  { label: 'Farm Partnerships', value: '12' },
+  { label: 'Miaka ya Biashara', value: '10+' },
+  { label: 'Vipande Bora', value: '25+' },
+  { label: 'Wateja Wenye Furaha', value: '5,000+' },
+  { label: 'Ushirikiano wa Mashamba', value: '12' },
 ]
 
 export default function Home() {
@@ -26,29 +26,29 @@ export default function Home() {
         <div className="relative z-10 py-24 px-4">
           <div className="max-w-3xl mx-auto animate-fade-in-up">
             <span className="text-meat-accent text-sm uppercase tracking-[0.2em] font-semibold block animate-fade-in [animation-delay:200ms] [animation-fill-mode:backwards]">
-              Farm-Fresh · Since 2014
+              Nyama Safi Shambani · Tangu 2005
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold mt-4 leading-tight">
-              Premium Meat,<br />Rooted in Quality.
+              Nyama Bora,<br />Yenye Ubora.
             </h1>
             <p className="mt-4 text-stone-300 text-lg max-w-xl mx-auto leading-relaxed animate-fade-in [animation-delay:400ms] [animation-fill-mode:backwards]">
-              Tuliho Meat delivers farm-fresh premium cuts to your doorstep.
-              Quality you can taste, service you can trust.
+              Tuliho Meat inatoa vipande bora vya nyama safi mpaka mlangoni kwako.
+              Ubora unaouonja, huduma unayoiiamini.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4 animate-fade-in-up [animation-delay:600ms] [animation-fill-mode:backwards]">
               <Link
                 to="/products"
                 className="bg-meat-red text-white px-8 py-3 rounded font-semibold hover:bg-meat-red/90 transition-colors"
               >
-                View Products
+                Tazama Bidhaa
               </Link>
               <a
-                href="https://wa.me/255672203073?text=Hello%20Tuliho%20Meat%2C%20I%20would%20like%20to%20place%20an%20order."
+                href="https://wa.me/255672203073?text=Habari%20Tuliho%20Meat%2C%20ningependa%20kuagiza."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-white text-white px-8 py-3 rounded font-semibold hover:bg-white/10 transition-colors"
               >
-                Order via WhatsApp
+                Agiza kupitia WhatsApp
               </a>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="py-20 text-center text-stone-500">Loading...</div>}>
+      <Suspense fallback={<div className="py-20 text-center text-stone-500">Inapakia...</div>}>
         <BelowFoldContent />
       </Suspense>
     </>

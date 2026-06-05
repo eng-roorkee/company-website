@@ -23,40 +23,40 @@ export default function About() {
         className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
         variants={fadeUp}
       >
-        About Us
+        Kuhusu Sisi
       </motion.span>
       <motion.h2
         className="text-3xl font-bold mt-2 mb-6"
         variants={fadeUp}
       >
-        Quality meat, responsibly sourced.
+        Nyama bora, inayotoka kwa uwajibikaji.
       </motion.h2>
 
       <motion.p
         className="text-stone-600 leading-relaxed mb-6"
         variants={fadeUp}
       >
-        Tuliho Meat is a premier meat provider based in Iringa, Tanzania. We specialize
-        in delivering high-quality, farm-fresh meat products to households, restaurants,
-        and businesses across the region.
+        Tuliho Meat ni mtoa huduma bora wa nyama makao yake makuu Iringa, Tanzania. Tunabobea
+        katika kuwasilisha bidhaa za nyama safi za shambani zenye ubora wa juu kwa kaya, migahawa,
+        na biashara kote mkoani.
       </motion.p>
 
       <motion.p
         className="text-stone-600 leading-relaxed mb-6"
         variants={fadeUp}
       >
-        Our commitment to quality starts at the source. We partner with trusted local farms
-        that share our values of ethical animal husbandry and sustainable practices. Every
-        cut is handled with care, from pasture to plate.
+        Kujitolea kwetu kwa ubora kunaanzia kwenye chanzo. Tunashirikiana na mashamba ya ndani yanayoaminika
+        ambayo yanashiriki maadili yetu ya ufugaji bora na mazoea endelevu. Kila
+        kipande kinashughulikiwa kwa uangalifu, kutoka shambani hadi mezani.
       </motion.p>
 
       <motion.p
         className="text-stone-600 leading-relaxed"
         variants={fadeUp}
       >
-        With years of experience in the meat industry, our team brings expertise and
-        dedication to every order. Whether you need a single cut for dinner or wholesale
-        supply for your business, Tuliho Meat delivers excellence.
+        Kwa miaka ya uzoefu katika tasnia ya nyama, timu yetu inaleta utaalamu na
+        kujitolea kwa kila agizo. Iwe unahitaji kipande kimoja cha chakula cha jioni au ugavi wa jumla
+        kwa biashara yako, Tuliho Meat inatoa ubora wa hali ya juu.
       </motion.p>
 
       <motion.div
@@ -70,7 +70,7 @@ export default function About() {
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <div className="text-2xl font-bold text-meat-red">2014</div>
-          <div className="text-stone-500 text-sm mt-1">Founded</div>
+          <div className="text-stone-500 text-sm mt-1">Ilianzishwa</div>
         </motion.div>
         <motion.div
           className="bg-white p-6 rounded-lg border border-stone-200"
@@ -79,7 +79,7 @@ export default function About() {
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <div className="text-2xl font-bold text-meat-red">Mafinga Iringa</div>
-          <div className="text-stone-500 text-sm mt-1">Based in</div>
+          <div className="text-stone-500 text-sm mt-1">Makao Yake</div>
         </motion.div>
         <motion.div
           className="bg-white p-6 rounded-lg border border-stone-200"
@@ -88,8 +88,39 @@ export default function About() {
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <div className="text-2xl font-bold text-meat-red">100%</div>
-          <div className="text-stone-500 text-sm mt-1">Quality Guarantee</div>
+          <div className="text-stone-500 text-sm mt-1">Dhamana ya Ubora</div>
         </motion.div>
+      </motion.div>
+
+      <motion.div className="mt-16" variants={stagger}>
+        <motion.span
+          className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
+          variants={fadeUp}
+        >
+          Mwanzilishi
+        </motion.span>
+        <motion.h2
+          className="text-3xl font-bold mt-2 mb-6"
+          variants={fadeUp}
+        >
+          Dickison Nyahi
+        </motion.h2>
+        <motion.p
+          className="text-stone-600 leading-relaxed mb-4 text-lg font-medium"
+          variants={fadeUp}
+        >
+          Mwanzilishi & Mwenye Biashara
+        </motion.p>
+        <motion.p
+          className="text-stone-600 leading-relaxed mb-6"
+          variants={fadeUp}
+        >
+          Dickison Nyahi ndiye mwanzilishi na mmiliki wa Tuliho Meat. Kwa maono ya kuleta
+          nyama bora na safi kwa jamii ya Iringa na Tanzania kwa ujumla, amejenga biashara
+          inayotanguliza ubora, uadilifu, na huduma kwa wateja. Uongozi wake umeleta
+          mageuzi katika sekta ya nyama, kuhakikisha kila kipande kinachofika kwa wateja
+          ni cha ubora wa juu.
+        </motion.p>
       </motion.div>
     </motion.section>
   )

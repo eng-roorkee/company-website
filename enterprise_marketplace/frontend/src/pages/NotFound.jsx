@@ -23,7 +23,7 @@ export default function NotFound() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        Page not found.
+        Ukurasa haukupatikana.
       </motion.p>
       <motion.p
         initial={{ opacity: 0, y: 10 }}
@@ -31,7 +31,7 @@ export default function NotFound() {
         transition={{ delay: 0.5 }}
       >
         <Link to="/" className="text-meat-red font-semibold hover:text-meat-red/80 transition-colors">
-          &larr; Back home
+          &larr; Rudi nyumbani
         </Link>
       </motion.p>
     </motion.section>

@@ -24,19 +24,19 @@ const galleryImages = [meatImg, cowImg, meat1Img, cow1Img, maini2Img, cow3Img, u
 
 const features = [
   {
-    title: 'Beef Cuts',
+    title: 'Vipande vya Nyama',
     images: [meatImg, cowImg, cow1Img],
-    desc: 'Ribeye, T-bone, fillet, mince, and stew meat — grass-fed, locally sourced.',
+    desc: 'Ribeye, T-bone, fillet, nyama ya kusaga, na nyama ya kitoweo — inayolishwa nyasi, inayotoka hapa kwetu.',
   },
   {
-    title: 'Poultry & Fish',
+    title: 'Kuku ',
     images: [maini2Img, mainiImg],
-    desc: 'Broiler chicken, sató fish, and more — fresh and handled with care.',
+    desc: 'Kuku wa broiler, samaki wa sató, na zaidi — safi na kushughulikiwa kwa uangalifu.',
   },
   {
-    title: 'Specialty Products',
+    title: 'Bidhaa Maalum',
     images: [utumboImg, meat1Img, cow3Img],
-    desc: 'Russian sausage, beef Vienna, barbeque packs — something for every table.',
+    desc: 'Russian sausage, beef Vienna, vifurushi vya barbeque — kitu kwa kila meza.',
   },
 ]
 
@@ -82,14 +82,14 @@ export default function BelowFoldContent() {
           className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
           variants={fadeUp}
         >
-          Customer Voice
+          Sauti ya Wateja
         </motion.span>
         <motion.blockquote
           className="mt-6 text-lg sm:text-xl text-stone-600 italic leading-relaxed"
           variants={fadeUp}
         >
-          &ldquo;The quality of the meat is unmatched. Fresh, properly cut, and delivered on time.
-          Tuliho Meat has become our go-to supplier.&rdquo;
+          &ldquo;Ubora wa nyama haulinganishwi. Safi, imekatwa vizuri, na kufikishwa kwa wakati.
+          Tuliho Meat imekuwa msambazaji wetu wa tegemeo.&rdquo;
         </motion.blockquote>
         <motion.p className="mt-4 text-stone-500 text-sm" variants={fadeUp}>
           &mdash; Michael Owen, Iringa
@@ -107,13 +107,13 @@ export default function BelowFoldContent() {
           className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
           variants={fadeUp}
         >
-          From Our Gallery
+          Kutoka kwenye Nyumba ya Picha Zetu
         </motion.span>
         <motion.h2
           className="text-3xl font-bold mt-2 mb-10 text-meat-dark"
           variants={fadeUp}
         >
-          Fresh cuts, captured fresh.
+          Nyama safi, picha safi.
         </motion.h2>
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-4 gap-4"
@@ -136,13 +136,13 @@ export default function BelowFoldContent() {
           className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
           variants={fadeUp}
         >
-          Our Range
+          Aina Zetu
         </motion.span>
         <motion.h2
           className="text-3xl font-bold mt-2 mb-10 text-meat-dark"
           variants={fadeUp}
         >
-          Quality cuts, every time.
+          Vipande bora, kila wakati.
         </motion.h2>
         <motion.div
           className="grid sm:grid-cols-3 gap-8"
@@ -184,8 +184,8 @@ export default function BelowFoldContent() {
         variants={stagger}
       >
         <motion.div className="max-w-2xl mx-auto" variants={fadeUp}>
-          <h2 className="text-2xl font-bold">Place Your Order Today</h2>
-          <p className="mt-2 text-stone-300">Reach out on WhatsApp or give us a call.</p>
+          <h2 className="text-2xl font-bold">Weka Agizo Lako Leo</h2>
+          <p className="mt-2 text-stone-300">Wasiliana nasi kupitia WhatsApp au kutupigia simu.</p>
           <motion.a
             href="https://wa.me/255672203073"
             target="_blank"
@@ -194,7 +194,7 @@ export default function BelowFoldContent() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Chat on WhatsApp
+            Ongea kwenye WhatsApp
           </motion.a>
         </motion.div>
       </motion.section>

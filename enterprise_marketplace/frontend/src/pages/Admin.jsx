@@ -2,9 +2,10 @@ import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const nav = [
-  { to: '/admin', label: 'Dashboard', end: true },
-  { to: '/admin/products', label: 'Products' },
-  { to: '/admin/comments', label: 'Comments' },
+  { to: '/admin', label: 'Dashibodi', end: true },
+  { to: '/admin/prices', label: 'Bei' },
+  { to: '/admin/products', label: 'Bidhaa' },
+  { to: '/admin/comments', label: 'Maoni' },
 ]
 
 export default function AdminLayout() {
@@ -46,7 +47,7 @@ export default function AdminLayout() {
             onClick={handleLogout}
             className="w-full text-left px-3 py-2 rounded text-sm text-meat-cream/60 hover:bg-meat-red/20 hover:text-white transition-colors"
           >
-            Sign Out
+            Toka
           </button>
         </div>
       </aside>
@@ -69,7 +70,7 @@ export default function AdminLayout() {
                 </Link>
               )
             })}
-            <button onClick={handleLogout} className="text-meat-cream/60 hover:text-white">Exit</button>
+            <button onClick={handleLogout} className="text-meat-cream/60 hover:text-white">Toka</button>
           </div>
         </div>
         <motion.div

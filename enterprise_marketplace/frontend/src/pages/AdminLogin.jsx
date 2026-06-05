@@ -19,7 +19,7 @@ export default function AdminLogin() {
       localStorage.setItem('admin', JSON.stringify(data.admin))
       navigate('/admin')
     } catch {
-      setError('Invalid username or password')
+      setError('Jina la mtumiaji au nywila si sahihi')
     } finally {
       setLoading(false)
     }
@@ -32,10 +32,10 @@ export default function AdminLogin() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h2 className="text-2xl font-bold text-center mb-6">Admin Login</h2>
+      <h2 className="text-2xl font-bold text-center mb-6">Ingia kama Msimamizi</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-stone-700 mb-1">Username</label>
+          <label className="block text-sm font-medium text-stone-700 mb-1">Jina la Mtumiaji</label>
           <input
             type="text"
             required
@@ -45,7 +45,7 @@ export default function AdminLogin() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-stone-700 mb-1">Password</label>
+          <label className="block text-sm font-medium text-stone-700 mb-1">Nywila</label>
           <input
             type="password"
             required
@@ -62,7 +62,7 @@ export default function AdminLogin() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          {loading ? 'Signing in…' : 'Sign In'}
+          {loading ? 'Inaingia…' : 'Ingia'}
         </motion.button>
       </form>
     </motion.div>

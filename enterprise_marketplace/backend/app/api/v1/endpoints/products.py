@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.core.deps import get_current_admin
 from app.db import get_db
-from app.models import Admin, Product
+from app.models import Admin, PriceHistory, Product
 from app.schemas import ProductCreate, ProductResponse, ProductUpdate
 
 router = APIRouter(prefix="/products", tags=["Products"])
@@ -54,9 +54,24 @@ def update_product(
     product = db.query(Product).filter(Product.id == product_id).first()
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
-    for field, value in body.model_dump(exclude_unset=True).items():
+
+    updates = body.model_dump(exclude_unset=True)
+    old_price = product.price
+
+    for field, value in updates.items():
         setattr(product, field, value)
+
     db.commit()
+
+    if "price" in updates and old_price != updates["price"]:
+        history = PriceHistory(
+            product_id=product.id,
+            old_price=old_price,
+            new_price=updates["price"],
+        )
+        db.add(history)
+        db.commit()
+
     db.refresh(product)
     return product
 

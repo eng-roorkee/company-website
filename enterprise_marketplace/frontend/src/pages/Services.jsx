@@ -12,20 +12,20 @@ const fadeUp = {
 
 const services = [
   {
-    title: 'Butchering',
-    desc: 'Full animal butchering service — custom cuts prepared to your specifications with precision and care.',
+    title: 'Uchinjaji',
+    desc: 'Huduma kamili ya uchinjaji wa wanyama — vipande maalum vinavyotayarishwa kulingana na mahitaji yako kwa usahihi na uangalifu.',
   },
   {
-    title: 'Delivery',
-    desc: 'Fast, reliable delivery across Mafinga and surrounding areas. Your order arrives fresh and on time.',
+    title: 'Usafirishaji',
+    desc: 'Usafirishaji wa haraka na wa kuaminika Mafinga na maeneo jirani. Agizo lako linawasili likiwa safi na kwa wakati.',
   },
   {
-    title: 'Catering',
-    desc: 'Premium meat catering for events, gatherings, and special occasions. Custom orders welcome.',
+    title: 'Upishi',
+    desc: 'Huduma bora ya upishi wa nyama kwa hafla, mikusanyiko, na matukio maalum. Maagizo maalum yanakaribishwa.',
   },
   {
-    title: 'Wholesale',
-    desc: 'Bulk meat supply for restaurants, hotels, and food service businesses. Competitive pricing.',
+    title: 'Uzwa Jumla',
+    desc: 'Ugavi wa nyama kwa wingi kwa migahawa, hoteli, na biashara za chakula. Bei shindani.',
   },
 ]
 
@@ -42,19 +42,19 @@ export default function Services() {
         className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
         variants={fadeUp}
       >
-        Our Services
+        Huduma Zetu
       </motion.span>
       <motion.h2
         className="text-3xl font-bold mt-2 mb-2"
         variants={fadeUp}
       >
-        Service you can trust.
+        Huduma unayoweza kuamini.
       </motion.h2>
       <motion.p
         className="text-stone-600 mb-12 max-w-xl"
         variants={fadeUp}
       >
-        From custom butchering to wholesale supply — we serve every need.
+        Kutoka uchinjaji maalum hadi ugavi wa jumla — tunakidhi kila hitaji.
       </motion.p>
 
       <motion.div

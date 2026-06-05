@@ -15,11 +15,12 @@ import NotFound from './pages/NotFound'
 const AdminLayout = lazy(() => import('./pages/Admin'))
 const AdminLogin = lazy(() => import('./pages/AdminLogin'))
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
+const AdminPrices = lazy(() => import('./pages/AdminPrices'))
 const AdminProducts = lazy(() => import('./pages/AdminProducts'))
 const AdminComments = lazy(() => import('./pages/AdminComments'))
 
 // A simple production-ready loading fallback
-const PageLoader = () => <div className="text-center p-10">Initializing secure session...</div>
+const PageLoader = () => <div className="text-center p-10">Inaanzisha kipindi salama...</div>
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="admin" element={<ProtectedRoute />}>
           <Route element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
+          <Route path="prices" element={<AdminPrices />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="comments" element={<AdminComments />} />
           </Route>

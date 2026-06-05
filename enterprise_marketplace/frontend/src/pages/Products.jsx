@@ -63,7 +63,7 @@ function ProductCard({ product }) {
     const item = product.variants
       ? { ...product, variant: selectedVariant }
       : product
-    alert(`Added to cart:\n${item.name}${item.variant ? ` - ${item.variant.weight}` : ''}\n${displayPriceLabel}`)
+    alert(`Imeongezwa kwenye kikapu:\n${item.name}${item.variant ? ` - ${item.variant.weight}` : ''}\n${displayPriceLabel}`)
   }
 
   return (
@@ -73,21 +73,16 @@ function ProductCard({ product }) {
       whileHover={{ y: -6, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
-      <div className="relative h-52 overflow-hidden bg-stone-100">
+      <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
         <motion.img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.6 }}
           loading="lazy"
         />
-        {product.isUpdated && (
-          <span className="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
-            Bei Mpya
-          </span>
-        )}
       </div>
 
       <div className="p-5 flex flex-col flex-1">
@@ -98,6 +93,12 @@ function ProductCard({ product }) {
         <h3 className="font-bold text-base mt-1 leading-snug text-meat-dark">
           {product.name}
         </h3>
+
+        {product.isUpdated && (
+          <span className="mt-2 self-start bg-amber-100 text-amber-800 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
+            Bei Mpya
+          </span>
+        )}
 
         <div className="mt-auto pt-4 space-y-3">
           {product.variants && (
@@ -122,8 +123,8 @@ function ProductCard({ product }) {
               {displayPriceLabel}
             </span>
           </div>
-
-          {/* <button
+{/* 
+          <button
             onClick={handleAddToCart}
             className="w-full bg-meat-red hover:bg-meat-red/90 text-white text-sm font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-colors"
           >
@@ -148,19 +149,19 @@ export default function Products() {
         className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
         variants={fadeUp}
       >
-        Our Products
+        Bidhaa Zetu
       </motion.span>
       <motion.h2
         className="text-3xl font-bold mt-2 mb-2"
         variants={fadeUp}
       >
-        Fresh cuts, fair prices.
+        Vipande vibichi, bei nafuu.
       </motion.h2>
       <motion.p
         className="text-stone-600 mb-12 max-w-xl"
         variants={fadeUp}
       >
-        Farm-fresh beef and poultry — every cut, every bird, handled with care.
+        Nyama safi ya ng'ombe na kuku — kila kipande, kila ndege, kimeshughulikiwa kwa uangalifu.
       </motion.p>
 
       <motion.div

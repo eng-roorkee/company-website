@@ -14,12 +14,12 @@ const fadeUp = {
 
 export default function AdminComments() {
   const [comments, setComments] = useState([])
-  const [filter, setFilter] = useState('all')
+  const [filter, setFilter] = useState('zote')
   const [loading, setLoading] = useState(true)
 
   const load = useCallback(async () => {
     try {
-      const params = filter === 'pending' ? { approved: false } : {}
+      const params = filter === 'zinazosubiri' ? { approved: false } : {}
       const { data } = await api.get('/api/v1/comments', { params })
       setComments(data)
     } catch {} finally {
@@ -37,14 +37,14 @@ export default function AdminComments() {
   }
 
   const handleDelete = async (id) => {
-    if (!confirm('Delete this comment?')) return
+    if (!confirm('Futa maoni haya?')) return
     try {
       await api.delete(`/api/v1/comments/${id}`)
       await load()
     } catch {}
   }
 
-  if (loading) return <p className="text-stone-400 text-sm">Loading comments…</p>
+  if (loading) return <p className="text-stone-400 text-sm">Inapakia maoni…</p>
 
   return (
     <motion.div
@@ -53,9 +53,9 @@ export default function AdminComments() {
       variants={stagger}
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">Comments</h2>
+        <h2 className="text-2xl font-bold">Maoni</h2>
         <div className="flex gap-2 text-sm">
-          {['all', 'pending', 'approved'].map((f) => (
+          {['zote', 'zinazosubiri', 'zilizokubaliwa'].map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -73,7 +73,7 @@ export default function AdminComments() {
 
       {comments.length === 0 ? (
         <motion.p className="text-stone-400 text-sm" variants={fadeUp}>
-          No comments found.
+          Hakuna maoni yaliyopatikana.
         </motion.p>
       ) : (
         <motion.div className="space-y-3" variants={stagger}>
@@ -92,10 +92,10 @@ export default function AdminComments() {
                         ? 'bg-green-100 text-green-700'
                         : 'bg-amber-100 text-amber-700'
                     }`}>
-                      {c.is_approved ? 'Approved' : 'Pending'}
+                      {c.is_approved ? 'Imekubaliwa' : 'Inasubiri'}
                     </span>
                     <span className="text-xs text-stone-400">
-                      on product #{c.product_id}
+                      kwenye bidhaa #{c.product_id}
                     </span>
                   </div>
                   <p className="text-stone-600 text-sm mt-2">{c.content}</p>
@@ -109,14 +109,14 @@ export default function AdminComments() {
                       onClick={() => handleApprove(c.id)}
                       className="text-xs bg-green-600 text-white px-3 py-1.5 rounded font-medium hover:bg-green-700 transition-colors"
                     >
-                      Approve
+                      Kubali
                     </button>
                   )}
                   <button
                     onClick={() => handleDelete(c.id)}
                     className="text-xs bg-red-600 text-white px-3 py-1.5 rounded font-medium hover:bg-red-700 transition-colors"
                   >
-                    Delete
+                      Futa
                   </button>
                 </div>
               </div>
