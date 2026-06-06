@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -12,9 +12,20 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <nav className="bg-meat-dark text-white sticky top-0 z-50 shadow-lg">
+    <nav
+      className={`bg-meat-dark text-white sticky top-0 z-50 transition-shadow duration-300 ${
+        scrolled ? 'shadow-2xl shadow-black/30' : 'shadow-lg'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -52,7 +63,7 @@ export default function Navbar() {
           href="https://wa.me/255672203073"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden lg:inline-flex bg-meat-red hover:bg-meat-red/90 text-white text-sm font-semibold uppercase tracking-wider px-5 py-2.5 rounded transition-colors"
+          className="hidden lg:inline-flex bg-meat-red hover:bg-meat-red/90 text-white text-sm font-semibold uppercase tracking-wider px-5 py-2.5 rounded transition-all hover:shadow-md hover:shadow-meat-red/20"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
@@ -67,9 +78,9 @@ export default function Navbar() {
           className="lg:hidden flex flex-col gap-1.5 p-2"
           aria-label="Fungua menyu"
         >
-          <span className={`block h-0.5 w-6 bg-meat-cream transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-meat-cream transition-opacity ${open ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-meat-cream transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block h-0.5 w-6 bg-meat-cream transition-transform duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block h-0.5 w-6 bg-meat-cream transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
+          <span className={`block h-0.5 w-6 bg-meat-cream transition-transform duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 

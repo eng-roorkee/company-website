@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="bg-meat-dark text-meat-muted text-sm py-12 mt-auto">
+      <div className="border-t border-meat-muted/20 mb-8" />
       <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-between gap-8">
         <div>
           <h4 className="text-white font-semibold mb-3 uppercase tracking-widest text-xs">Tuliho Meat</h4>
@@ -22,7 +23,7 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-3 uppercase tracking-widest text-xs">Mawasiliano</h4>
           <p>+255 672 203 073</p>
           <p>+255 754 245 863</p>
-          <p className="mt-2">&copy; {new Date().getFullYear()} Tuliho Meat.</p>
+          <p className="mt-3 text-meat-muted/60">&copy; {new Date().getFullYear()} Tuliho Meat.</p>
         </div>
       </div>
     </footer>

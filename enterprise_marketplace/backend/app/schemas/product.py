@@ -1,23 +1,23 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ProductCreate(BaseModel):
-    name: str
-    description: str | None = None
-    price: float
-    image_url: str | None = None
-    category: str | None = None
+    name: str = Field(..., min_length=1, max_length=200)
+    description: str | None = Field(None, max_length=2000)
+    price: float = Field(..., ge=0, le=1_000_000_000)
+    image_url: str | None = Field(None, max_length=500)
+    category: str | None = Field(None, max_length=100)
     is_special_offer: bool = False
 
 
 class ProductUpdate(BaseModel):
-    name: str | None = None
-    description: str | None = None
-    price: float | None = None
-    image_url: str | None = None
-    category: str | None = None
+    name: str | None = Field(None, min_length=1, max_length=200)
+    description: str | None = Field(None, max_length=2000)
+    price: float | None = Field(None, ge=0, le=1_000_000_000)
+    image_url: str | None = Field(None, max_length=500)
+    category: str | None = Field(None, max_length=100)
     is_special_offer: bool | None = None
 
 

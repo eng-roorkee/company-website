@@ -1,13 +1,19 @@
+import os
+
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
+from app.core.config import settings
 from app.core.security import hash_password
 from app.db import Base, get_db
 from app.models import Admin
 from main import app
+
+os.environ["ALLOW_SEED"] = "true"
+settings.ALLOW_SEED = True
 
 engine = create_engine(
     "sqlite://",

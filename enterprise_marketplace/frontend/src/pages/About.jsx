@@ -19,80 +19,84 @@ export default function About() {
       viewport={{ once: true, margin: '-50px' }}
       variants={stagger}
     >
-      <motion.span
-        className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
-        variants={fadeUp}
-      >
-        Kuhusu Sisi
-      </motion.span>
-      <motion.h2
-        className="text-3xl font-bold mt-2 mb-6"
-        variants={fadeUp}
-      >
-        Nyama bora, inayotoka kwa uwajibikaji.
-      </motion.h2>
+      <div className="text-center mb-12">
+        <motion.span
+          className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
+          variants={fadeUp}
+        >
+          Kuhusu Sisi
+        </motion.span>
+        <motion.h2
+          className="text-3xl font-bold mt-2"
+          variants={fadeUp}
+        >
+          Nyama bora, inayotoka kwa uwajibikaji.
+        </motion.h2>
+      </div>
 
-      <motion.p
-        className="text-stone-600 leading-relaxed mb-6"
-        variants={fadeUp}
-      >
-        Tuliho Meat ni mtoa huduma bora wa nyama makao yake makuu Iringa, Tanzania. Tunabobea
-        katika kuwasilisha bidhaa za nyama safi za shambani zenye ubora wa juu kwa kaya, migahawa,
-        na biashara kote mkoani.
-      </motion.p>
+      <motion.div className="space-y-5 max-w-3xl mx-auto" variants={stagger}>
+        <motion.p
+          className="text-stone-600 leading-relaxed"
+          variants={fadeUp}
+        >
+          Tuliho Meat ni mtoa huduma bora wa nyama makao yake makuu Iringa, Tanzania. Tunabobea
+          katika kuwasilisha bidhaa za nyama safi za shambani zenye ubora wa juu kwa kaya, migahawa,
+          na biashara kote mkoani.
+        </motion.p>
 
-      <motion.p
-        className="text-stone-600 leading-relaxed mb-6"
-        variants={fadeUp}
-      >
-        Kujitolea kwetu kwa ubora kunaanzia kwenye chanzo. Tunashirikiana na mashamba ya ndani yanayoaminika
-        ambayo yanashiriki maadili yetu ya ufugaji bora na mazoea endelevu. Kila
-        kipande kinashughulikiwa kwa uangalifu, kutoka shambani hadi mezani.
-      </motion.p>
+        <motion.p
+          className="text-stone-600 leading-relaxed"
+          variants={fadeUp}
+        >
+          Kujitolea kwetu kwa ubora kunaanzia kwenye chanzo. Tunashirikiana na mashamba ya ndani yanayoaminika
+          ambayo yanashiriki maadili yetu ya ufugaji bora na mazoea endelevu. Kila
+          kipande kinashughulikiwa kwa uangalifu, kutoka shambani hadi mezani.
+        </motion.p>
 
-      <motion.p
-        className="text-stone-600 leading-relaxed"
-        variants={fadeUp}
-      >
-        Kwa miaka ya uzoefu katika tasnia ya nyama, timu yetu inaleta utaalamu na
-        kujitolea kwa kila agizo. Iwe unahitaji kipande kimoja cha chakula cha jioni au ugavi wa jumla
-        kwa biashara yako, Tuliho Meat inatoa ubora wa hali ya juu.
-      </motion.p>
+        <motion.p
+          className="text-stone-600 leading-relaxed"
+          variants={fadeUp}
+        >
+          Kwa miaka ya uzoefu katika tasnia ya nyama, timu yetu inaleta utaalamu na
+          kujitolea kwa kila agizo. Iwe unahitaji kipande kimoja cha chakula cha jioni au ugavi wa jumla
+          kwa biashara yako, Tuliho Meat inatoa ubora wa hali ya juu.
+        </motion.p>
+      </motion.div>
 
       <motion.div
-        className="mt-10 grid sm:grid-cols-3 gap-6 text-center"
+        className="mt-12 grid sm:grid-cols-3 gap-6"
         variants={stagger}
       >
         <motion.div
-          className="bg-white p-6 rounded-lg border border-stone-200"
+          className="bg-white p-8 rounded-xl border border-stone-200 text-center hover:shadow-lg transition-all"
           variants={fadeUp}
-          whileHover={{ y: -5, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
+          whileHover={{ y: -5, boxShadow: '0 16px 32px rgba(0,0,0,0.1)' }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <div className="text-2xl font-bold text-meat-red">2014</div>
-          <div className="text-stone-500 text-sm mt-1">Ilianzishwa</div>
+          <div className="text-3xl font-bold text-meat-red">2014</div>
+          <div className="text-stone-500 text-sm mt-1.5">Ilianzishwa</div>
         </motion.div>
         <motion.div
-          className="bg-white p-6 rounded-lg border border-stone-200"
+          className="bg-white p-8 rounded-xl border border-stone-200 text-center hover:shadow-lg transition-all"
           variants={fadeUp}
-          whileHover={{ y: -5, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
+          whileHover={{ y: -5, boxShadow: '0 16px 32px rgba(0,0,0,0.1)' }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <div className="text-2xl font-bold text-meat-red">Mafinga Iringa</div>
-          <div className="text-stone-500 text-sm mt-1">Makao Yake</div>
+          <div className="text-3xl font-bold text-meat-red">Mafinga Iringa</div>
+          <div className="text-stone-500 text-sm mt-1.5">Makao Yake</div>
         </motion.div>
         <motion.div
-          className="bg-white p-6 rounded-lg border border-stone-200"
+          className="bg-white p-8 rounded-xl border border-stone-200 text-center hover:shadow-lg transition-all"
           variants={fadeUp}
-          whileHover={{ y: -5, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
+          whileHover={{ y: -5, boxShadow: '0 16px 32px rgba(0,0,0,0.1)' }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <div className="text-2xl font-bold text-meat-red">100%</div>
-          <div className="text-stone-500 text-sm mt-1">Dhamana ya Ubora</div>
+          <div className="text-3xl font-bold text-meat-red">100%</div>
+          <div className="text-stone-500 text-sm mt-1.5">Dhamana ya Ubora</div>
         </motion.div>
       </motion.div>
 
-      <motion.div className="mt-16" variants={stagger}>
+      <motion.div className="mt-16 max-w-3xl mx-auto" variants={stagger}>
         <motion.span
           className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
           variants={fadeUp}
@@ -106,13 +110,13 @@ export default function About() {
           Dickison Nyahi
         </motion.h2>
         <motion.p
-          className="text-stone-600 leading-relaxed mb-4 text-lg font-medium"
+          className="text-stone-600 leading-relaxed mb-3 text-lg font-medium"
           variants={fadeUp}
         >
           Mwanzilishi & Mwenye Biashara
         </motion.p>
         <motion.p
-          className="text-stone-600 leading-relaxed mb-6"
+          className="text-stone-600 leading-relaxed"
           variants={fadeUp}
         >
           Dickison Nyahi ndiye mwanzilishi na mmiliki wa Tuliho Meat. Kwa maono ya kuleta

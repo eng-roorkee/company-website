@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 
+from app.core.config import settings
 from app.core.security import hash_password, verify_password, create_access_token
 from app.db import get_db
 from app.models import Admin
@@ -43,6 +44,11 @@ def login(body: LoginRequest, db: Session = Depends(get_db)):
 
 @router.post("/seed", status_code=201)
 def seed_admin(db: Session = Depends(get_db)):
+    if not settings.ALLOW_SEED:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Seed endpoint is disabled. Set ALLOW_SEED=true in .env to enable.",
+        )
     existing = db.query(Admin).filter(Admin.username == "admin").first()
     if existing:
         return {"message": "Admin already exists", "username": "admin"}
