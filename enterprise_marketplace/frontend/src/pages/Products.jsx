@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import api from '../services/api'
+import { useCart } from '../context/CartContext'
 import meatImg from '../assets/meat.webp'
 import utumboImg from '../assets/utumbo.webp'
 import kuroilerImg from '../assets/kuroiler-meat.webp'
@@ -58,6 +59,8 @@ function ProductCard({ product }) {
   const [selectedVariant, setSelectedVariant] = useState(
     product.variants ? product.variants[0] : null
   )
+  const [added, setAdded] = useState(false)
+  const { addItem } = useCart()
 
   const displayPrice = product.variants ? selectedVariant?.price : product.price
   const displayPriceLabel = displayPrice != null ? `${displayPrice.toLocaleString('en-TZ')} TSHS` : '—'
@@ -66,7 +69,9 @@ function ProductCard({ product }) {
     const item = product.variants
       ? { ...product, variant: selectedVariant }
       : product
-    alert(`Imeongezwa kwenye kikapu:\n${item.name}${item.variant ? ` - ${item.variant.weight}` : ''}\n${displayPriceLabel}`)
+    addItem(item)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1500)
   }
 
   const imgSrc = product.image
@@ -137,9 +142,13 @@ function ProductCard({ product }) {
           </div>
           <button
             onClick={handleAddToCart}
-            className="w-full bg-meat-red hover:bg-meat-red/90 text-white text-sm font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-all hover:shadow-md hover:shadow-meat-red/20 active:scale-[0.98]"
+            className={`w-full text-white text-sm font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-all active:scale-[0.98] ${
+              added
+                ? 'bg-green-600 hover:bg-green-700 shadow-md shadow-green-600/20'
+                : 'bg-meat-red hover:bg-meat-red/90 hover:shadow-md hover:shadow-meat-red/20'
+            }`}
           >
-            Weka Kwenye Kikapu
+            {added ? '\u2713 Imeongezwa' : 'Weka Kwenye Kikapu'}
           </button>
         </div>
       </div>

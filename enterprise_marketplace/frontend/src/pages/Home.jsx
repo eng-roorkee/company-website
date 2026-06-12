@@ -62,7 +62,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Tuliho Meat inatoa vipande bora vya nyama safi mpaka mlangoni kwako.
+              Tuliho Meat tunatoa huduma bora ya nyama safi mpaka mlangoni kwako.
               Ubora unaouonja, huduma unayoiiamini.
             </motion.p>
             <motion.div

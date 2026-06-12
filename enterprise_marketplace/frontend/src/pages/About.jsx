@@ -107,7 +107,7 @@ export default function About() {
           className="text-3xl font-bold mt-2 mb-6"
           variants={fadeUp}
         >
-          Dickison Nyahi
+          Dickson Nyahi
         </motion.h2>
         <motion.p
           className="text-stone-600 leading-relaxed mb-3 text-lg font-medium"
@@ -119,7 +119,7 @@ export default function About() {
           className="text-stone-600 leading-relaxed"
           variants={fadeUp}
         >
-          Dickison Nyahi ndiye mwanzilishi na mmiliki wa Tuliho Meat. Kwa maono ya kuleta
+          Dickson Nyahi ndiye mwanzilishi na mmiliki wa Tuliho Meat. Kwa maono ya kuleta
           nyama bora na safi kwa jamii ya Iringa na Tanzania kwa ujumla, amejenga biashara
           inayotanguliza ubora, uadilifu, na huduma kwa wateja. Uongozi wake umeleta
           mageuzi katika sekta ya nyama, kuhakikisha kila kipande kinachofika kwa wateja

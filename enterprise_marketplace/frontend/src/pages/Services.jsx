@@ -2,6 +2,29 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import api from '../services/api'
 
+const steps = [
+  {
+    number: '01',
+    title: 'Ufugaji wa Asili',
+    desc: 'Wanyama wetu wanalishwa nyasi asilia na kufugwa kwenye mazingira safi ya mashamba ya ndani.',
+  },
+  {
+    number: '02',
+    title: 'Uandaaji Salama',
+    desc: 'Uchinjaji na ukataji unafanyika kwenye viwango vya juu vya usafi na kufuata miongozo yote ya afya.',
+  },
+  {
+    number: '03',
+    title: 'Usafirishaji Salama',
+    desc: 'Tunapakia nyama kwenye vifungashio maalum na kuisafirisha ikiwa safi na baridi hadi kwako.',
+  },
+  {
+    number: '04',
+    title: 'Ladha Kamili',
+    desc: 'Furahia chakula kitamu na chenye afya ukiwa na familia au wateja wako kila siku.',
+  },
+]
+
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
@@ -91,68 +114,102 @@ export default function Services() {
   const displayServices = services.length > 0 ? services : fallbackServices
 
   return (
-    <motion.section
-      className="py-20 px-4 max-w-6xl mx-auto"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={stagger}
-    >
-      <div className="text-center mb-12">
-        <motion.span
-          className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
-          variants={fadeUp}
-        >
-          Huduma Zetu
-        </motion.span>
-        <motion.h2
-          className="text-3xl font-bold mt-2"
-          variants={fadeUp}
-        >
-          Huduma unayoweza kuamini.
-        </motion.h2>
-        <motion.p
-          className="text-stone-500 mt-2 max-w-xl mx-auto"
-          variants={fadeUp}
-        >
-          Kutoka uchinjaji maalum hadi ugavi wa jumla — tunakidhi kila hitaji.
-        </motion.p>
-      </div>
-
-      {loading ? (
-        <div className="grid sm:grid-cols-2 gap-6">
-          {[1, 2, 3, 4].map((i) => (
-            <ServiceSkeleton key={i} />
-          ))}
+    <>
+      <motion.section
+        className="pt-14 pb-8 px-4 max-w-6xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-50px' }}
+        variants={stagger}
+      >
+        <div className="text-center mb-6">
+          <motion.span
+            className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block"
+            variants={fadeUp}
+          >
+            Huduma Zetu
+          </motion.span>
+          <motion.h2
+            className="text-3xl font-bold mt-2"
+            variants={fadeUp}
+          >
+            Huduma unayoweza kuamini.
+          </motion.h2>
+          <motion.p
+            className="text-stone-500 mt-2 max-w-xl mx-auto"
+            variants={fadeUp}
+          >
+            Kutoka uchinjaji maalum hadi ugavi wa jumla — tunakidhi kila hitaji.
+          </motion.p>
         </div>
-      ) : (
-        <motion.div className="grid sm:grid-cols-2 gap-6" variants={stagger}>
-          {displayServices.map((s, idx) => (
-            <motion.div
-              key={s.id || s.title || idx}
-              className="bg-white rounded-xl border border-stone-200 p-6 shadow-sm hover:shadow-lg transition-all"
-              variants={fadeUp}
-              whileHover={{ y: -4, boxShadow: '0 16px 32px rgba(0,0,0,0.1)' }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-meat-red/10 rounded-xl flex items-center justify-center shrink-0 text-meat-red">
-                  {serviceIcons[idx % serviceIcons.length].icon}
+
+        {loading ? (
+          <div className="grid sm:grid-cols-2 gap-6">
+            {[1, 2, 3, 4].map((i) => (
+              <ServiceSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
+          <motion.div className="grid sm:grid-cols-2 gap-6" variants={stagger}>
+            {displayServices.map((s, idx) => (
+              <motion.div
+                key={s.id || s.title || idx}
+                className="bg-white rounded-xl border border-stone-200 p-6 shadow-sm hover:shadow-lg transition-all"
+                variants={fadeUp}
+                whileHover={{ y: -4, boxShadow: '0 16px 32px rgba(0,0,0,0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-meat-red/10 rounded-xl flex items-center justify-center shrink-0 text-meat-red">
+                    {serviceIcons[idx % serviceIcons.length].icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-stone-800">{s.title || s.name}</h3>
+                    <p className="text-stone-600 text-sm mt-2 leading-relaxed">{s.description || s.desc}</p>
+                    {s.price != null && (
+                      <span className="inline-block mt-3 text-sm font-bold text-meat-red">
+                        {s.price.toLocaleString('en-TZ')} TZS
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-stone-800">{s.title || s.name}</h3>
-                  <p className="text-stone-600 text-sm mt-2 leading-relaxed">{s.description || s.desc}</p>
-                  {s.price != null && (
-                    <span className="inline-block mt-3 text-sm font-bold text-meat-red">
-                      {s.price.toLocaleString('en-TZ')} TZS
-                    </span>
-                  )}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </motion.section>
+
+      {/* How We Work Process Timeline Section — full width */}
+      <section className="pt-8 pb-14 bg-stone-100/50 border-t border-stone-200/60">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-meat-red text-sm uppercase tracking-[0.2em] font-semibold block">
+              Uhakika wa Ubora
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold mt-2 text-meat-dark">
+              Jinsi Tunavyofanya Kazi
+            </h2>
+            <p className="text-stone-500 text-xs sm:text-sm mt-3 max-w-lg mx-auto">
+              Hatua kwa hatua kuanzia shamba hadi kwenye sahani yako ya chakula.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {steps.map((step, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="w-12 h-12 rounded-full bg-meat-red flex items-center justify-center font-bold text-lg text-white mb-5 group-hover:scale-110 transition-transform">
+                  {step.number}
                 </div>
+                <h3 className="text-lg font-bold mb-2 text-meat-dark group-hover:text-meat-red transition-colors">{step.title}</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">{step.desc}</p>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
-    </motion.section>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
