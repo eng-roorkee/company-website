@@ -5,6 +5,8 @@
 
 ![cover](enterprise_marketplace/frontend/src/assets/coverpage.jpg)
 
+curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash
+
 ---
 
 ## ✨ Features
