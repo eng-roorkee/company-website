@@ -94,7 +94,7 @@ const categories = [
 const featuredProducts = [
   { name: 'Nyama ya Ng\'ombe (Beef Filet)', price: '12,000 TZS', image: meatImg },
   { name: 'Kroiler Chicken (Above 2 KG)', price: '20,000 TZS', image: maini2Img },
-  { name: 'Broiler Chicken (1.5 - 2KG)', price: '11,000 TZS', image: mainiImg },
+  // { name: 'Broiler Chicken (1.5 - 2KG)', price: '11,000 TZS', image: mainiImg },
   { name: 'Utumbo Safi (Beef Tripe)', price: '8,000 TZS', image: utumboImg },
 ]
 
